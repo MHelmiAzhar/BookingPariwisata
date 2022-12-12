@@ -8,10 +8,8 @@ const SearchItem = ({ item }) => {
       <div className="siDesc">
         <h1 className="siTitle">{item.name}</h1>
         <span className="siDistance">{item.distance}m dari pusat kota</span>
-        <span className="siSubtitle">Studio Apartment with Air conditioning</span>
+
         <span className="siFeatures">{item.desc}</span>
-        <span className="siCancelOp">Free cancellation </span>
-        <span className="siCancelOpSubtitle">You can cancel later, so lock in this great price today!</span>
       </div>
       <div className="siDetails">
         {item.rating && (
@@ -23,7 +21,7 @@ const SearchItem = ({ item }) => {
         <div className="siDetailTexts">
           <span className="siPrice">Rp{item.cheapestPrice}</span>
           <Link to={`/wisata/${item._id}`}>
-            <button className="siCheckButton">See availability</button>
+            <button className="siCheckButton">Lihat Lebih Detail</button>
           </Link>
         </div>
       </div>
