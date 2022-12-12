@@ -32,9 +32,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   const alldates = getDatesInRange(dates[0].startDate, dates[0].endDate);
 
   const isAvailable = (roomNumber) => {
-    const isFound = roomNumber.unavailableDates.some((date) =>
-      alldates.includes(new Date(date).getTime())
-    );
+    const isFound = roomNumber.unavailableDates.some((date) => alldates.includes(new Date(date).getTime()));
 
     return !isFound;
   };
@@ -42,11 +40,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   const handleSelect = (e) => {
     const checked = e.target.checked;
     const value = e.target.value;
-    setSelectedRooms(
-      checked
-        ? [...selectedRooms, value]
-        : selectedRooms.filter((item) => item !== value)
-    );
+    setSelectedRooms(checked ? [...selectedRooms, value] : selectedRooms.filter((item) => item !== value));
   };
 
   const navigate = useNavigate();
@@ -68,11 +62,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   return (
     <div className="reserve">
       <div className="rContainer">
-        <FontAwesomeIcon
-          icon={faCircleXmark}
-          className="rClose"
-          onClick={() => setOpen(false)}
-        />
+        <FontAwesomeIcon icon={faCircleXmark} className="rClose" onClick={() => setOpen(false)} />
         <span>Select your rooms:</span>
         {data.map((item) => (
           <div className="rItem" key={item._id}>
@@ -88,12 +78,7 @@ const Reserve = ({ setOpen, hotelId }) => {
               {item.roomNumbers.map((roomNumber) => (
                 <div className="room">
                   <label>{roomNumber.number}</label>
-                  <input
-                    type="checkbox"
-                    value={roomNumber._id}
-                    onChange={handleSelect}
-                    disabled={!isAvailable(roomNumber)}
-                  />
+                  <input type="checkbox" value={roomNumber._id} onChange={handleSelect} disabled={!isAvailable(roomNumber)} />
                 </div>
               ))}
             </div>
