@@ -31,8 +31,12 @@ const Wisata = () => {
     const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
     return diffDays;
   }
+  const [jumlahTiket, setJumlahTiket] = useState(0);
+  const handleTiketChange = (e) => {
+    setJumlahTiket(e.target.value);
+  };
 
-  const days = dayDifference(dates[0].endDate, dates[0].startDate);
+  // const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -77,16 +81,13 @@ const Wisata = () => {
             </div>
           )}
           <div className="wisataWrapper">
-            <button onClick={handleClick} className="bookNow">
-              Reserve or Book Now!
-            </button>
             <h1 className="wisataTitle">{data.name}</h1>
             <div className="wisataAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
-            <span className="wisataDistance">Excellent location – {data.distance}m from center</span>
-            <span className="wisataPriceHighlight">Book a stay over ${data.cheapestPrice} at this property and get a free airport taxi</span>
+            <span className="wisataDistance">Hanya – {data.distance}m dari pusat kota</span>
+            <span className="wisataPriceHighlight">Harga tiket masuk hanya Rp{data.cheapestPrice}</span>
             <div className="wisataImages">
               {data.photos?.map((photo, i) => (
                 <div className="wisataImgWrapper" key={i}>
@@ -98,6 +99,14 @@ const Wisata = () => {
               <div className="wisataDetailsTexts">
                 <h1 className="wisataTitle">{data.title}</h1>
                 <p className="wisataDesc">{data.desc}</p>
+              </div>
+              <div className="wisataDetailsPrice">
+                <h1>Pesan Tiket Anda Sekarang!</h1>
+                <input type="number" placeholder="total dana" value={jumlahTiket} onChange={handleTiketChange} />
+                <h2>
+                  <b>Rp{data.cheapestPrice * jumlahTiket}</b> ({jumlahTiket} Tiket)
+                </h2>
+                <button onClick={handleClick}>Pesan Tiket</button>
               </div>
             </div>
           </div>

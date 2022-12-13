@@ -36,87 +36,54 @@ export const userInputs = [
   },
 ];
 
-export const productInputs = [
-  {
-    id: 1,
-    label: "Title",
-    type: "text",
-    placeholder: "Apple Macbook Pro",
-  },
-  {
-    id: 2,
-    label: "Description",
-    type: "text",
-    placeholder: "Description",
-  },
-  {
-    id: 3,
-    label: "Category",
-    type: "text",
-    placeholder: "Computers",
-  },
-  {
-    id: 4,
-    label: "Price",
-    type: "text",
-    placeholder: "100",
-  },
-  {
-    id: 5,
-    label: "Stock",
-    type: "text",
-    placeholder: "in stock",
-  },
-];
-
-export const hotelInputs = [
+export const wisataInputs = [
   {
     id: "name",
-    label: "Name",
+    label: "Nama",
     type: "text",
-    placeholder: "My Hotel",
+    placeholder: "Destinasi Wisata",
   },
   {
     id: "type",
-    label: "Type",
+    label: "Jenis",
     type: "text",
-    placeholder: "hotel",
+    placeholder: "Jenis Wisata",
   },
   {
     id: "city",
-    label: "City",
+    label: "Kota",
     type: "text",
-    placeholder: "New York",
+    placeholder: "Jakarta",
   },
   {
     id: "address",
-    label: "Address",
+    label: "Alamat",
     type: "text",
-    placeholder: "elton st, 216",
+    placeholder: "jln. Jend.Sudirman",
   },
   {
     id: "distance",
-    label: "Distance from City Center",
+    label: "Jarak dari Pusat Kota",
     type: "text",
     placeholder: "500",
   },
   {
     id: "title",
-    label: "Title",
+    label: "Judul",
     type: "text",
-    placeholder: "The best Hotel",
+    placeholder: "Kebun Raya",
   },
   {
     id: "desc",
-    label: "Description",
+    label: "Deskripsi",
     type: "text",
-    placeholder: "description",
+    placeholder: "Deskripsi",
   },
   {
     id: "cheapestPrice",
-    label: "Price",
+    label: "Harga",
     type: "text",
-    placeholder: "100",
+    placeholder: "500000",
   },
 ];
 

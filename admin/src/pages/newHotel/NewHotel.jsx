@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
-import { hotelInputs } from "../../formSource";
+import { wisataInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 
@@ -19,14 +19,11 @@ const NewHotel = () => {
   };
 
   const handleSelect = (e) => {
-    const value = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
+    const value = Array.from(e.target.selectedOptions, (option) => option.value);
     setRooms(value);
   };
-  
-  console.log(files)
+
+  console.log(files);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -36,10 +33,7 @@ const NewHotel = () => {
           const data = new FormData();
           data.append("file", file);
           data.append("upload_preset", "upload");
-          const uploadRes = await axios.post(
-            "https://api.cloudinary.com/v1_1/lamadev/image/upload",
-            data
-          );
+          const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/lamadev/image/upload", data);
 
           const { url } = uploadRes.data;
           return url;
@@ -53,7 +47,9 @@ const NewHotel = () => {
       };
 
       await axios.post("/hotels", newhotel);
-    } catch (err) {console.log(err)}
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="new">
@@ -65,14 +61,7 @@ const NewHotel = () => {
         </div>
         <div className="bottom">
           <div className="left">
-            <img
-              src={
-                files
-                  ? URL.createObjectURL(files[0])
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            />
+            <img src={files ? URL.createObjectURL(files[0]) : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"} alt="" />
           </div>
           <div className="right">
             <form>
@@ -80,24 +69,13 @@ const NewHotel = () => {
                 <label htmlFor="file">
                   Image: <DriveFolderUploadOutlinedIcon className="icon" />
                 </label>
-                <input
-                  type="file"
-                  id="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                  style={{ display: "none" }}
-                />
+                <input type="file" id="file" multiple onChange={(e) => setFiles(e.target.files)} style={{ display: "none" }} />
               </div>
 
-              {hotelInputs.map((input) => (
+              {wisataInputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input
-                    id={input.id}
-                    onChange={handleChange}
-                    type={input.type}
-                    placeholder={input.placeholder}
-                  />
+                  <input id={input.id} onChange={handleChange} type={input.type} placeholder={input.placeholder} />
                 </div>
               ))}
               <div className="formInput">
