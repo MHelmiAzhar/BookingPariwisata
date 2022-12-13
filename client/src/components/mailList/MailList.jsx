@@ -4,7 +4,7 @@ const MailList = () => {
   return (
     <div className="mail">
       <h1 className="mailTitle">Liburan, libuRUN aja</h1>
-      <span className="mailDesc">Sign up and we'll send the best deals to you</span>
+      <span className="mailDesc">Daftar akun untun mendapatkan promo menarik lainnya</span>
       <div className="mailInputContainer">
         <input type="text" placeholder="Your Email" />
         <button>Subscribe</button>
